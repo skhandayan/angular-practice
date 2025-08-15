@@ -1,6 +1,49 @@
-<h1>{{ title }}</h1>
+<!-- String Interpolation -->
+<div>
+  <h1>String Interpolation</h1>
+  <h3 class="title">{{ title }}</h3>
+  <p>{{ message }}</p>
+  <img src="{{ imageUrl }}" alt="">
+</div>
 
-<p>{{ message }}</p>
+<!-- Property Bindings -->
+<div>
+  <h1>Property Bindings</h1>
+  <h3 [class.title] = "bool">{{ title }}</h3>
+  <h3 [style.color] = " bool ? 'red' : 'blue' "> Style Binding </h3>
+  <img [src]="imageUrl" alt="">
+</div>
 
-<app-chat-input [fromApp]='appParentMessage' (messageEvent)='receiveMessage($event)'></app-chat-input>
-<p>{{ fromChildOutput }}</p>
+
+
+<!-- Event Binding -->
+ <div>
+  <h1>Event Binding</h1>
+  <button (click)="buttonClick()"> Click Me </button>
+  <p>{{buttonMessage}}</p>
+ </div>
+
+
+ <!-- Event Filtering -->
+<div>
+  <h1>Event Filtering</h1>
+  <input type="text" (keyup.enter)="onKeyup()">
+</div>
+
+
+
+<!-- Template Variable -->
+<div>
+  <h1>Template Variable</h1>
+  <input type="text" (keyup.enter)="getInput1(username.value)" #username>
+</div>
+
+<!-- Two way Data Binding -->
+<div>
+  <h1>Two way Data Binding</h1>
+  <input type="text" [(ngModel)]='userName' (keyup.enter)="getInput2()">
+</div>
+
+
+<app-chat-input></app-chat-input>
+<app-chat-message></app-chat-message>

@@ -1,31 +1,38 @@
-import { Component, ViewChild, AfterViewInit, ChangeDetectorRef } from '@angular/core';
+import { Component} from '@angular/core';
 import { ChatInput } from './chat-input/chat-input';
+import { ChatMessage } from './chat-message/chat-message';
+import { FormsModule } from '@angular/forms'
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [ChatInput],
+  imports: [ChatInput, ChatMessage, FormsModule],
   templateUrl: './app.html',
   styleUrls: ['./app.css'],
 })
 
-export class App implements AfterViewInit {
+export class App {
   title: string = 'App Component'
-  appParentMessage: string = 'Message from App Component to ChatInput Component'
-  message?: string;
-  fromChildOutput?: string;
+  message: string = 'Message From Typescript Component file';
+  imageUrl: string = 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ-xaZ5a5hWazi3ZJ7EP2S84Xz2jfXDjQ6Zqw&s';
+  bool: boolean = true;
 
-  @ViewChild(ChatInput) childComponent!: ChatInput;
+  buttonMessage: string = 'Button Click Event worked';
+  userName?: string;
 
-  constructor(public cdr: ChangeDetectorRef) {
+  buttonClick() {
+    console.log('Clicked')
   }
 
-  ngAfterViewInit() {
-    this.message = this.childComponent.chatInputChildMessage
-    this.cdr.detectChanges();
+  onKeyup() {
+      console.log('Event keyup works')
   }
 
-  receiveMessage($event: string) {
-    this.fromChildOutput = $event;
+  getInput1(username: any) {
+      console.log(username)
+  }
+
+  getInput2() {
+    console.log(this.userName)
   }
 }
