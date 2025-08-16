@@ -1,73 +1,45 @@
-<div>
-  <h1>Structural Directives</h1>
-  <p>{{ postArray }}</p>
-
-  <ul>
-    @for (post of postArray; track post) {
-      <li>{{ post }}</li>
-    }
-  </ul>
-
-  <ul>
-    @for (post of objectArray; track post) {
-      <li>{{ post | json }}</li>
-    }
-  </ul>
-
-
-  <button (click)="addNew()">Add New Data</button>
-
-
-  <div> 
-    @if (objectArray.length > 0) {
-      @for (post of objectArray; track post.id; let i = $index) {
-        <p>{{ post.postTitle }} <button (click)="removeItem(i)">Remove Item</button></p>
-      }
-    } @else {
-      <p>No post available</p>
-    }
-  </div>
-
-  <div>
-    <button (click)="onClick('step 1')">Step 1</button>
-    <button (click)="onClick('step 2')">Step 2</button>
-    <button (click)="onClick('step 3')">Step 3</button>
-  </div>
-
-  <div>
-    @switch (stepForm) {
-      @case ('step 1') {
-        <p>Step 1 Form</p>
-      }
-      @case ('step 2') {
-        <p>Step 2 Form</p>
-      }
-      @case ('step 3') {
-        <p>Step 3 Form</p>
-      }
-      @default {
-        <p>Welcome to our form</p>
-      }
-    }
-  </div>
-</div>
-
-<div>
+<div class="user-details-form">
+  <h2>User Details</h2>
   <br>
-  <h1>Attribute Directives</h1>
-  <h1
-    [ngStyle]="{
-      color: isActive ? 'red' : '',
-      textTransform: isActive ? 'uppercase' : 'lowercase'
-    }"
-  >NgStyle Directives</h1>
-
-  <p
-    [ngClass]="{
-      'main' : isActive,
-      'text-weight': isActive
-    }"
-  >NgClass Directives</p>
+  <input [(ngModel)]="name" placeholder="Name">
+  <br>
+  <input type="email" [(ngModel)]="email" placeholder="E-Mail">
+  <br>
+  <textarea [(ngModel)]="address" class="address-textarea" placeholder="Address"></textarea>
+  <br>
+  <button (click)="saveNewData()">Save Data</button>
 </div>
- 
+
+
+@if( userDetailsArray.length > 0) {
+  <div>
+    <div class="user-data-table">
+      <table width="500">
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Address</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        
+        <tbody>
+          @for (user of userDetailsArray; track user; let index = $index) {
+            <tr>
+              <td class="user-info">{{ index + 1}}</td>
+              <td class="user-info">{{ user.name}}</td>
+              <td class="user-info">{{ user.email}}</td>
+              <td class="user-info">{{ user.address}}</td>
+              <td class="user-info"><button (click)="removeItem(index)">Delete</button></td>
+            </tr>
+          }
+        </tbody>
+      </table>
+    </div>
+  </div>
+} @else {
+  <h5 class="user-data-table">No data shown</h5>
+} 
 

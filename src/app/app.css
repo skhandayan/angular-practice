@@ -1,52 +1,33 @@
-.post-from-page, .add-background {
+.user-details-form {
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
-.post-details {
-  width: 152px;
+.address-textarea {
+  width: 250px;
   height: 150px;
-  margin-bottom: 10px;
 }
 
-.post-title, .post-image-url, .post-url {
-  width: 150px;
-  margin-bottom: 10px;
+.address-info {
+  width: 50px;
 }
 
-.input-checkbox {
-  font-size: 13px;
-}
-
-img {
-  margin-bottom: 20px;
-  border-radius: 20px;
-}
-
-.add-background {
-  max-width: 300px;
-  margin: 20px;
-  padding: 30px;
-  background-color: rgb(233, 240, 255);
-  border-radius: 20px;
-  border: 1px solid rgb(219, 221, 255);
-}
-
-.post-format {
+.user-data-table {
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  max-width: 300px;
-  margin: 20px;
-  padding: 30px;
+  flex-direction: row;
+  justify-content: center;
+  margin-top: 50px;
 }
 
-.main {
-  color: red;
-  text-transform: uppercase;
+.user-info {
+  text-align: center;
+  padding: 10px;
+  max-width: 250px;
 }
 
-.text-weight {
-  font-weight: bold;
+
+p {
+  font-size: 14px;
 }
+
