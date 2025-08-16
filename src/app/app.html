@@ -1,0 +1,46 @@
+<div class="post-from-page">
+  <h1> Post Form</h1>
+  <input 
+    class="post-title" 
+    placeholder="Post Title"
+    (keyup)="getTitle($event)"
+  >
+
+  <textarea 
+    class="post-details" 
+    placeholder="Post Details"
+    (keyup)="getDetails($event)"
+  ></textarea>
+
+  <input 
+    class="post-image-url"  
+    placeholder="Post Image URL"
+    (keyup)="getImageUrl($event)"  
+  >
+
+  <input 
+    class="post-url" 
+    placeholder="Post URL"
+    (keyup)="getUrl($event)"
+  >
+
+  <label class="input-checkbox">
+    <input 
+      type="checkbox"
+      (change)="toggleCheckBox($event)"
+    >Add Background
+  </label>
+</div>
+
+<div class="post-from-page">
+  <div class="post-format" [class.add-background]="isChecked">
+    <h1>{{ postTitle }}</h1>
+    <img [src]="postImageUrl" alt="">
+    <p>{{ postDetails }}</p>
+    <a [href]="postUrl" 
+      target="_blank" 
+      [style.display]="postUrl ? '' : 'none' "
+    >More Details</a>
+  </div>
+</div>
+

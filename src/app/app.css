@@ -1,11 +1,43 @@
-.title {
-  color: orange;
+.post-from-page, .add-background {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
-div {
-  padding-bottom: 50px;
-  padding-left: 50px;
-  padding-top: 50px;
-  border: 5px #000000bb;
-  margin: 20px;
 
+.post-details {
+  width: 152px;
+  height: 150px;
+  margin-bottom: 10px;
+}
+
+.post-title, .post-image-url, .post-url {
+  width: 150px;
+  margin-bottom: 10px;
+}
+
+.input-checkbox {
+  font-size: 13px;
+}
+
+img {
+  margin-bottom: 20px;
+  border-radius: 20px;
+}
+
+.add-background {
+  max-width: 300px;
+  margin: 20px;
+  padding: 30px;
+  background-color: rgb(233, 240, 255);
+  border-radius: 20px;
+  border: 1px solid rgb(219, 221, 255);
+}
+
+.post-format {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 300px;
+  margin: 20px;
+  padding: 30px;
 }
