@@ -41,3 +41,12 @@ img {
   margin: 20px;
   padding: 30px;
 }
+
+.main {
+  color: red;
+  text-transform: uppercase;
+}
+
+.text-weight {
+  font-weight: bold;
+}

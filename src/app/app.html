@@ -1,46 +1,73 @@
-<div class="post-from-page">
-  <h1> Post Form</h1>
-  <input 
-    class="post-title" 
-    placeholder="Post Title"
-    (keyup)="getTitle($event)"
-  >
+<div>
+  <h1>Structural Directives</h1>
+  <p>{{ postArray }}</p>
 
-  <textarea 
-    class="post-details" 
-    placeholder="Post Details"
-    (keyup)="getDetails($event)"
-  ></textarea>
+  <ul>
+    @for (post of postArray; track post) {
+      <li>{{ post }}</li>
+    }
+  </ul>
 
-  <input 
-    class="post-image-url"  
-    placeholder="Post Image URL"
-    (keyup)="getImageUrl($event)"  
-  >
+  <ul>
+    @for (post of objectArray; track post) {
+      <li>{{ post | json }}</li>
+    }
+  </ul>
 
-  <input 
-    class="post-url" 
-    placeholder="Post URL"
-    (keyup)="getUrl($event)"
-  >
 
-  <label class="input-checkbox">
-    <input 
-      type="checkbox"
-      (change)="toggleCheckBox($event)"
-    >Add Background
-  </label>
-</div>
+  <button (click)="addNew()">Add New Data</button>
 
-<div class="post-from-page">
-  <div class="post-format" [class.add-background]="isChecked">
-    <h1>{{ postTitle }}</h1>
-    <img [src]="postImageUrl" alt="">
-    <p>{{ postDetails }}</p>
-    <a [href]="postUrl" 
-      target="_blank" 
-      [style.display]="postUrl ? '' : 'none' "
-    >More Details</a>
+
+  <div> 
+    @if (objectArray.length > 0) {
+      @for (post of objectArray; track post.id; let i = $index) {
+        <p>{{ post.postTitle }} <button (click)="removeItem(i)">Remove Item</button></p>
+      }
+    } @else {
+      <p>No post available</p>
+    }
+  </div>
+
+  <div>
+    <button (click)="onClick('step 1')">Step 1</button>
+    <button (click)="onClick('step 2')">Step 2</button>
+    <button (click)="onClick('step 3')">Step 3</button>
+  </div>
+
+  <div>
+    @switch (stepForm) {
+      @case ('step 1') {
+        <p>Step 1 Form</p>
+      }
+      @case ('step 2') {
+        <p>Step 2 Form</p>
+      }
+      @case ('step 3') {
+        <p>Step 3 Form</p>
+      }
+      @default {
+        <p>Welcome to our form</p>
+      }
+    }
   </div>
 </div>
+
+<div>
+  <br>
+  <h1>Attribute Directives</h1>
+  <h1
+    [ngStyle]="{
+      color: isActive ? 'red' : '',
+      textTransform: isActive ? 'uppercase' : 'lowercase'
+    }"
+  >NgStyle Directives</h1>
+
+  <p
+    [ngClass]="{
+      'main' : isActive,
+      'text-weight': isActive
+    }"
+  >NgClass Directives</p>
+</div>
+ 
 
