@@ -1,0 +1,7 @@
+<button (click)="addNewData()">Add new</button>
+
+<ul>
+  @for(post of posts; track post) {
+    <ul>{{ post.postTitle }}</ul>
+  }
+</ul>

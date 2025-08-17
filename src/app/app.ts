@@ -1,15 +1,15 @@
-import { CommonModule } from '@angular/common';
 import { Component} from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { PostComponent } from './post/post';
+import { PostListComponent } from './post-list/post-list';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [FormsModule, CommonModule, ],
+  imports: [ PostComponent, PostListComponent],
   templateUrl: './app.html',
   styleUrls: ['./app.css'],
 })
 
-export class App {
+export class AppComponent {
 
 }
