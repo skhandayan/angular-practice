@@ -1,45 +1,41 @@
-<div class="user-details-form">
-  <h2>User Details</h2>
-  <br>
-  <input [(ngModel)]="name" placeholder="Name">
-  <br>
-  <input type="email" [(ngModel)]="email" placeholder="E-Mail">
-  <br>
-  <textarea [(ngModel)]="address" class="address-textarea" placeholder="Address"></textarea>
-  <br>
-  <button (click)="saveNewData()">Save Data</button>
-</div>
 
+<h1>{{ title | uppercase }}</h1>
 
-@if( userDetailsArray.length > 0) {
-  <div>
-    <div class="user-data-table">
-      <table width="500">
-        <thead>
-          <tr>
-            <th>#</th>
-            <th>Name</th>
-            <th>Email</th>
-            <th>Address</th>
-            <th>Action</th>
-          </tr>
-        </thead>
-        
-        <tbody>
-          @for (user of userDetailsArray; track user; let index = $index) {
-            <tr>
-              <td class="user-info">{{ index + 1}}</td>
-              <td class="user-info">{{ user.name}}</td>
-              <td class="user-info">{{ user.email}}</td>
-              <td class="user-info">{{ user.address}}</td>
-              <td class="user-info"><button (click)="removeItem(index)">Delete</button></td>
-            </tr>
-          }
-        </tbody>
-      </table>
-    </div>
-  </div>
-} @else {
-  <h5 class="user-data-table">No data shown</h5>
-} 
+<!-- Number Pipes -->
+<h1>Number Pipes</h1>
+<p>{{ count | number }}</p>
+<p>{{ dcValue | number: '1.2-2' }}</p>
 
+<!-- Currency Pipe -->
+<h1>Currency Pipe</h1>
+<p>{{ price | currency: 'PHP' }}</p>
+<p>{{ price | currency: 'PHP': false }}</p>
+<p>{{ price | currency: 'PHP': false : '2.1-1' }}</p>
+
+<!-- Date Pipe -->
+<h1>Date Pipe</h1>
+<p>{{ today | date: 'short' }}</p>
+<p>{{ today | date: 'shortDate' }}</p>
+
+<!-- JSON Pipe -->
+<h1>JSON Pipe</h1>
+<p>{{ postObject | json }}</p>  
+
+<!-- Percent Pipe -->
+<h1>Percent Pipe</h1>
+<p>{{ 0.567 | percent }}</p>
+<p>{{ 5 | percent }}</p>
+<p>{{ 5 | percent: '1.1-1' }}</p>
+
+<!-- Slice Pipe -->
+<h1>Slice Pipe</h1>
+<p>{{ postArray | slice: 2:4}}</p>
+
+ <!-- Custom Pipe -->
+<h1>Custom Pipe</h1>
+<p>{{ userDetails.city }}</p>
+<p>{{ userDetails.city | appendCLI }}</p>
+
+<!-- Custom Pipe with Arguments -->
+ <h1>Custom Pipe with Arguments</h1>
+ <p>{{ dummyText | summary }}</p>
